@@ -3,6 +3,7 @@
 스터디에서 사용하는 프로젝트입니다. 5주차(07/04) 내용까지 구현되어 있습니다.
 
 ```
+Assets
 ├── Prefabs (프리팹 모아 놓은 폴더)
 ├── Scenes (씬 모아 놓은 폴더)
 ├── ScriptableObjects (에디터로 생성한 ScriptableObject 모아 놓은 폴더)
