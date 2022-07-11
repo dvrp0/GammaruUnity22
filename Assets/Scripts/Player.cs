@@ -22,5 +22,19 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
             Life--;
+        else if (collision.gameObject.CompareTag("Item"))
+        {
+            Item = collision.gameObject.GetComponent<ItemContainer>().Item;
+            StartCoroutine(PlayAudio(collision.gameObject));
+        }
+    }
+
+    private IEnumerator PlayAudio(GameObject gameObject)
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(gameObject.GetComponent<AudioSource>().clip.length);
+        Destroy(gameObject);
     }
 }
