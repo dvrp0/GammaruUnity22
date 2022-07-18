@@ -20,4 +20,9 @@ public class Enemy : MonoBehaviour, IEnemy
             yield return null;
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

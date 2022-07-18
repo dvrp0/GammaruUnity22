@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public int Life;
     public float Speed;
+    public Transform OnHitParticle;
     public Item Item;
 
     private void Update()
@@ -21,7 +22,10 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
+        {
             Life--;
+            Instantiate(OnHitParticle, transform.position, Quaternion.identity);
+        }
         else if (collision.gameObject.CompareTag("Item"))
         {
             Item = collision.gameObject.GetComponent<ItemContainer>().Item;
